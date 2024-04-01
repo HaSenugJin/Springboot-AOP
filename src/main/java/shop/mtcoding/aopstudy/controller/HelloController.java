@@ -15,6 +15,7 @@ public class HelloController {
     @Hello
     @GetMapping("/v2")
     public String v2(String username){
+        System.out.println("username : 값 변경? : " + username);
         return "v2";
     }
 }

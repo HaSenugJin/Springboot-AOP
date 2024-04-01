@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import shop.mtcoding.aopstudy.config.aop.LoginResolver;
 import shop.mtcoding.aopstudy.config.interceptor.LoginInterceptor;
+import shop.mtcoding.aopstudy.config.resolver.MyLoginArgumentResolver;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    private final LoginResolver loginResolver;
+    private final MyLoginArgumentResolver myLoginArgumentResolver;
     private final LoginInterceptor loginInterceptor;
 
     @Override
@@ -25,6 +25,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(loginResolver);
+        resolvers.add(myLoginArgumentResolver);
     }
 }
